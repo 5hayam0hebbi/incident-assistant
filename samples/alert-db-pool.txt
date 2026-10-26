@@ -1,0 +1,5 @@
+[ALERT] payments-api p95 latency 4.8s (threshold 1s) for 10 minutes
+host: pay-api-03  env: prod
+log: 2026-10-26T02:14:07Z ERROR HikariPool-1 - Connection is not available, request timed out after 30000ms (connection pool exhausted)
+log: 2026-10-26T02:14:09Z ERROR POST /transfers 500 Internal Server Error
+db: CPU 22%, active connections 200/200

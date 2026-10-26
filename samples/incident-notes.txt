@@ -1,0 +1,10 @@
+Incident notes - payments API slow, Oct 26
+02:04 deploy 4.12 of payments-api finished
+02:14 latency alert fired, p95 4.8s; on-call engineer paged
+02:19 on-call joined bridge, saw "connection pool exhausted" errors on pay-api-03
+02:25 DB team confirmed 200/200 connections in use, DB CPU normal
+02:31 restarted pay-api-03; latency recovered for 9 minutes then climbed again
+02:44 incident commander decided to roll back to 4.11
+02:52 rollback complete, connections steady at 40, latency normal
+03:20 incident closed; about 12% of transfers failed between 02:14 and 02:52
+Cause found next day: 4.12 opened a new DB connection per retry and never closed it.
